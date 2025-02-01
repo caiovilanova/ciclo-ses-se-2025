@@ -1,0 +1,16 @@
+{
+    "about": {
+      "title": "Quem é a CICLO",
+      "image": {
+        "src": "../assets/img/ciclo_foto.jpg",
+        "alt": "CICLO"
+      },
+      "paragraphs": [
+        "A CICLO é uma instituição educacional com 17 anos de história. Oferece cursos preparatórios para concurso nas modalidades online e presencial em Aracaju, município onde está sediada.",
+        "Aqui, milhares de alunos já alcançaram o sonho do cargo público. Milhares já vestiram a farda policial e mudaram a própria vida e a de seus familiares.",
+        "Aqui você encontra o melhor corpo docente e a melhor estrutura física do nordeste. Não é a toa que o candidato comprometido com a aprovação escolhe a CICLO para sua preparação.",
+        "Bem-vindo a CICLO - Tradição em Aprovação."
+      ]
+    }
+  }
+  

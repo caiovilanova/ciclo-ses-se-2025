@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Próximo Passo - Black Caveira PM-SE - CICLO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../assets/img/ciclo_favicon.png" type="image/png">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+    <style>
+        /* Estilos Gerais */
+        html,
+        body {
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-image: url('../assets/img/blackcaveira_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #FFFFFF;
+        }
+
+        .top-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        .top-container img.logo-large {
+            width: 70%;
+            max-width: 300px;
+            height: auto;
+        }
+
+        .top-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            font-weight: 600;
+            margin: 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #FFFFFF;
+            background: linear-gradient(45deg, #28a745, #1e7e34);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: pulse 1.5s infinite alternate;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 50px auto;
+            gap: 8px;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+            }
+
+            100% {
+                transform: scale(1.05);
+                box-shadow: 0 0 15px rgba(40, 167, 69, 0.8);
+            }
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            font-size: 0.9em;
+            color: #CCCCCC;
+        }
+
+        .footer .developer {
+            font-size: 0.75em;
+            color: #999999;
+        }
+    </style>
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1360614991339284');
+        fbq('track', 'PageView');
+        fbq('track', 'Lead');
+        fbq('track', 'CompleteRegistration');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1360614991339284&ev=PageView&noscript=1" /></noscript>
+
+</head>
+
+<body>
+    <header>
+        <div class="top-container">
+            <img src="../assets/img/blackcaveira_logo.png" alt="Black Caveira PM-SE" class="logo-large">
+            <div class="top-content">
+                <h1>Recebemos seu cadastro, futuro PM.<br>Veja o próximo passo:</h1>
+                <button class="cta-button"
+                    onclick="window.location.href='https://chat.whatsapp.com/DJRI2yNO9yrLOZAbZjqlg9'">
+                    <i class="bi bi-whatsapp"></i> Entrar no Grupo Silenciado da Black Caveira
+                </button>
+                <button class="cta-button" onclick="window.location.href='https://pmse.portalciclo.com.br'">
+                    <i class="bi bi-whatsapp"></i> VER AS OFERTAS
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <footer class="footer">
+        <img src="../assets/img/ciclo_logo.png" alt="Logo Ciclo" style="max-width: 50px;">
+        <p>© 2024 CICLO - Todos os direitos reservados.</p>
+        <p class="developer">Developed by Caio Vilanova</p>
+    </footer>
+    <script>
+        // Redireciona a página após 7 segundos
+        setTimeout(function () {
+            window.location.href = "https://pmse.portalciclo.com.br"; // Substitua pela URL desejada
+        }, 7000);
+
+    </script>
+</body>
+
+</html>

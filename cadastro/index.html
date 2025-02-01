@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aulas ao vivo e gratuitas - Evento Gabaritando IBFC | CICLO">
+    <title>SES-SE - Gabaritando IBFC - CICLO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../assets/img/ciclo_favicon.png" type="image/png">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../assets/estilos.css">
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1360614991339284');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1360614991339284&ev=PageView&noscript=1" /></noscript>
+
+</head>
+
+<body>
+    <header>
+        <div class="top-container">
+            <img src="../assets/img/logo.png" alt="CICLO" class="logo-large" id="header-img">
+            <div class="top-content">
+                <h1 id="header-title">...</h1>
+                <p class="subtitle" id="header-subtitle">...</p>
+                <button class="cta-button" onclick="showPopup()" id="header-button">Quero Ter Acesso</button>
+            </div>
+        </div>
+    </header>
+    <script src="../lib/updateHeaderCadastro.js"></script>
+
+    <!-- Pop-up de Cadastro -->
+    <div id="popup" class="popup-content">
+        <span class="popup-close" onclick="closePopup()">×</span>
+        <h2>Cadastre-se para Acesso Exclusivo</h2>
+        <form action="https://pmse.portalciclo.com.br/cadastro/cadastro.php" method="POST" class="form-container"
+            onsubmit="return validateForm()">
+            <input type="text" name="nome" placeholder="Seu Nome Completo" required class="input">
+            <div class="row">
+                <input type="text" name="ddi" value="+55" readonly class="input">
+                <input type="text" name="ddd" placeholder="DDD" maxlength="2" required class="input">
+                <input type="tel" name="whatsapp" placeholder="Número de WhatsApp" maxlength="9" required class="input">
+            </div>
+            <input type="hidden" id="telefone-formatado" name="telefone">
+            <button type="submit" class="submit-button">Confirmar Acesso</button>
+        </form>
+    </div>
+
+
+    <!-- Pop-up de Vídeo -->
+    <div id="video-popup" class="video-popup">
+        <span class="popup-close" onclick="closeVideoPopup()">X</span>
+        <h2>Assista ao Vídeo</h2>
+        <div id="video-container"></div>
+    </div>
+
+    <!-- Seção de Depoimentos com Carrossel -->
+    <section class="section">
+        <div class="section-inner">
+            <h2>Quem mais aprova!</h2>
+            <div class="carousel">
+                <div class="carousel-item" onclick="showVideo('https://www.youtube.com/embed/uUdoxZBTo8Y')">
+                    <img src="https://img.youtube.com/vi/uUdoxZBTo8Y/0.jpg" alt="Hoffman">
+                    <p>Hoffman - Aprovado</p>
+                    <p>"O meu sonho começou aqui"</p>
+                </div>
+                <div class="carousel-item" onclick="showVideo('https://www.youtube.com/embed/KHOXHCNttLo')">
+                    <img src="https://img.youtube.com/vi/KHOXHCNttLo/0.jpg" alt="Thainá">
+                    <p>Thainá - Aprovada</p>
+                    <p>"Estudei pouco tempo e o resultado foi esse."</p>
+                </div>
+                <div class="carousel-item" onclick="showVideo('https://www.youtube.com/embed/SIeTRNuA4r4')">
+                    <img src="https://img.youtube.com/vi/SIeTRNuA4r4/0.jpg" alt="Guimarães">
+                    <p>Guimarães - Aprovado</p>
+                    <p>"O melhor do estado de Sergipe com certeza"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção "Quem é a CICLO" -->
+    <section class="section">
+        <div class="section-inner">
+            <h2 id="about-title">Quem é a CICLO</h2>
+            <div class="two-columns">
+                <div class="image-container" id="about-img">
+                    <img src="../assets/img/ciclo_foto.jpg" alt="CICLO">
+                </div>
+                <div class="text-container" id="about-paragraphs">
+                    
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="cta-button" id="header-button" onclick="showPopup()">Quero Ter Acesso</button>
+            </div>
+        </div>
+    </section>
+    <script src="../lib/updateAbout.js"></script>
+
+
+
+
+    <footer class="footer">
+        <img src="../assets/img/ciclo_logo.png" alt="Logo Ciclo" style="max-width: 50px;">
+        <p>© 2025 CICLO - Todos os direitos reservados.</p>
+        <p class="developer">Developed by Caio Vilanova</p>
+    </footer>
+
+    <script>
+        // Função para exibir o pop-up de cadastro
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        // Função para fechar o pop-up de cadastro
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        // Validação do número de WhatsApp
+        function validateWhatsAppNumber(number) {
+            const cleanedNumber = number.replace(/\D/g, ''); // Remove caracteres não numéricos
+            return /^\d{9}$/.test(cleanedNumber); // Valida se há 9 dígitos para o número
+        }
+
+        // Função de validação do formulário antes de enviar
+        function validateForm() {
+            const name = document.querySelector('input[name="nome"]').value.trim();
+            const ddd = document.querySelector('input[name="ddd"]').value.trim();
+            const whatsapp = document.querySelector('input[name="whatsapp"]').value.trim();
+            const ddi = "+55";
+
+            // Verificação dos campos
+            if (name === "" || ddd === "" || whatsapp === "") {
+                alert("Por favor, preencha todos os campos.");
+                return false;
+            }
+
+            // Validação do DDD (apenas 2 dígitos)
+            if (!/^\d{2}$/.test(ddd)) {
+                alert("Por favor, insira um DDD válido (2 dígitos).");
+                return false;
+            }
+
+            // Validação do número de WhatsApp (apenas 9 dígitos)
+            if (!validateWhatsAppNumber(whatsapp)) {
+                alert("Por favor, insira um número de WhatsApp válido (9 dígitos).");
+                return false;
+            }
+
+            // Concatena DDI, DDD e número em um único valor e atribui ao campo oculto
+            const telefoneCompleto = `${ddi}${ddd}${whatsapp}`;
+            document.getElementById('telefone-formatado').value = telefoneCompleto;
+
+            return true; // Permite o envio do formulário se tudo estiver válido
+        }
+
+
+        // Função para exibir o vídeo em um pop-up
+        function showVideo(url) {
+            document.getElementById('video-container').innerHTML = `<iframe width="100%" height="315" src="${url}" frameborder="0" allowfullscreen></iframe>`;
+            document.getElementById('video-popup').style.display = 'block';
+        }
+
+        // Função para fechar o pop-up de vídeo
+        function closeVideoPopup() {
+            document.getElementById('video-popup').style.display = 'none';
+            document.getElementById('video-container').innerHTML = '';
+        }
+
+        // Fechar o pop-up ao clicar fora da área de conteúdo
+        window.onclick = function (event) {
+            const popup = document.getElementById('popup');
+            const videoPopup = document.getElementById('video-popup');
+            if (event.target === popup) {
+                closePopup();
+            } else if (event.target === videoPopup) {
+                closeVideoPopup();
+            }
+        };
+    </script>
+
+    
+
+</body>
+
+</html>
