@@ -9,8 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <link rel="icon" href="../assets/img/ciclo_favicon.png" type="image/png">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../assets/estilos.css">
     <!-- Meta Pixel Code -->
     <script>
@@ -57,9 +56,9 @@
     <div id="popup" class="popup-content">
         <span class="popup-close" onclick="closePopup()">×</span>
         <h2>Cadastre-se para Acesso Exclusivo</h2>
-        <form action="https://pmse.portalciclo.com.br/cadastro/cadastro.php" method="POST" class="form-container"
+        <form action="https://ses.portalciclo.com.br/cadastro/cadastro.php" method="POST" class="form-container"
             onsubmit="return validateForm()">
-            <input type="text" name="nome" placeholder="Seu Nome Completo" required class="input">
+            <input type="text" name="nome" placeholder="Seu Nome" required class="input">
             <div class="row">
                 <input type="text" name="ddi" value="+55" readonly class="input">
                 <input type="text" name="ddd" placeholder="DDD" maxlength="2" required class="input">
@@ -69,49 +68,151 @@
             <button type="submit" class="submit-button">Confirmar Acesso</button>
         </form>
     </div>
+    <div id="blackmask" class="popup-mask"></div>
 
-
-    <!-- Pop-up de Vídeo -->
-    <div id="video-popup" class="video-popup">
-        <span class="popup-close" onclick="closeVideoPopup()">X</span>
-        <h2>Assista ao Vídeo</h2>
-        <div id="video-container"></div>
-    </div>
 
     <!-- Seção de Depoimentos com Carrossel -->
     <section class="section">
+        <div class="section-inner" style="border:30px dotted rgba(0, 0, 0, 0.5); border-left: none; border-right: none;">
+            <h1 style="text-align: center;"><i class="bi bi-calendar"></i> Aulas de<br>05 a 14 de Fevereiro de 2025</h1>
+        </div>
+    </section>
+
+
+    <!-- Seção de Cursos Online com Desconto -->
+    <section class="section cursos-online">
         <div class="section-inner">
-            <h2>Quem mais aprova!</h2>
-            <div class="carousel">
-                <div class="carousel-item" onclick="showVideo('https://www.youtube.com/embed/uUdoxZBTo8Y')">
-                    <img src="https://img.youtube.com/vi/uUdoxZBTo8Y/0.jpg" alt="Hoffman">
-                    <p>Hoffman - Aprovado</p>
-                    <p>"O meu sonho começou aqui"</p>
+            <h2>Você vai receber ao se cadastrar:</h2>
+            <div class="cursos-grid">
+
+                <!-- Item 1 -->
+                <div class="curso-item">
+                    <p><i class="bi bi-pencil-square curso-thumbnail-icon"></i></p>
+                    <h3>Questões comentadas</h3>
+                    <p>Aulas ao vivo e gratuitas resolvendo questões da banca com professores especialistas.</p>
+                    <p class="preco">Grátis</p>
+                    
+                    <button class="cta-button curso-button"
+                    onclick="showPopup()">Quero participar</button>
                 </div>
-                <div class="carousel-item" onclick="showVideo('https://www.youtube.com/embed/KHOXHCNttLo')">
-                    <img src="https://img.youtube.com/vi/KHOXHCNttLo/0.jpg" alt="Thainá">
-                    <p>Thainá - Aprovada</p>
-                    <p>"Estudei pouco tempo e o resultado foi esse."</p>
+
+
+                <!-- Item 2 -->
+                <div class="curso-item">
+                    <p><i class="bi bi-filetype-pdf curso-thumbnail-icon"></i></p>
+                    <h3>Materiais de estudo</h3>
+                    <p>Material em PDF, cadernos de questões e simulados.</p>
+                    <p class="preco">Grátis</p>
+                    
+                    <button class="cta-button curso-button"
+                    onclick="showPopup()">Quero participar</button>
                 </div>
-                <div class="carousel-item" onclick="showVideo('https://www.youtube.com/embed/SIeTRNuA4r4')">
-                    <img src="https://img.youtube.com/vi/SIeTRNuA4r4/0.jpg" alt="Guimarães">
-                    <p>Guimarães - Aprovado</p>
-                    <p>"O melhor do estado de Sergipe com certeza"</p>
+
+
+                <!-- Item 3 -->
+                <div class="curso-item">
+                    <p><i class="bi bi-calendar-week curso-thumbnail-icon"></i></p>
+                    <h3>Planejamento de Estudos</h3>
+                    <p>Aula ao vivo ensinando a criar um plano de estudos de 60 dias capaz de te aprovar.</p>
+                    <p class="preco">Grátis</p>
+                    
+                    <button class="cta-button curso-button"
+                    onclick="showPopup()">Quero participar</button>
                 </div>
+
+                <!-- Item 4 -->
+                <div class="curso-item">
+                    <p><i class="bi bi-journal-check curso-thumbnail-icon"></i></p>
+                    <h3>Análise do Edital</h3>
+                    <p>Uma aula exclusiva com uma análise cuidadosa do edital para que você se prepare corretamente.</p>
+                    <p class="preco">Grátis</p>
+                    
+                    <button class="cta-button curso-button"
+                    onclick="showPopup()">Quero participar</button>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="curso-item">
+                    <p><i class="bi bi-emoji-laughing-fill curso-thumbnail-icon"></i></p>
+                    <h3>Motivação</h3>
+                    <p>Professores atenciosos enviarão áudios e vídeos motivadores para você não desistir dessa conquista.</p>
+                    <p class="preco">Grátis</p>
+                    
+                    <button class="cta-button curso-button"
+                    onclick="showPopup()">Quero participar</button>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="curso-item">
+                    <p><i class="bi bi-broadcast curso-thumbnail-icon"></i></p>
+                    <h3>Atualizações</h3>
+                    <p>Informações sobre o concurso, data da prova, remarcações, retificações de edital etc.</p>
+                    <p class="preco">Grátis</p>
+                    
+                    <button class="cta-button curso-button"
+                    onclick="showPopup()">Quero participar</button>
+                </div>
+
+              
             </div>
         </div>
     </section>
 
+
+
+<!-- Seção de Sobre o Concurso -->
+<section class="section">
+    <div class="section-inner" style="border-top:30px dotted rgba(0, 0, 0, 0.5);">
+        <h2 style="text-align: center;">Sobre o Concurso</h2>
+        <div class="cursos-grid">
+
+
+            <!-- Item 1 -->
+            <div class="curso-item">
+                <p><i class="bi bi-people curso-thumbnail-icon"></i></p>
+                <h3>Vagas e Cargos</h3>
+                <p style="text-align: justify;">Além das 878 vagas imediatas serão ofertadas mais de 4.000 oportunidades no cadastro de reserva. Cargos como:</p>
+                <ul style="text-align: left;"><li>Psicólogo,</li><li>Enfermeiro, </li><li>Técnico de Enfermagem, </li><li>Nutricionista, </li><li>Assistente Social, </li><li>Fisioterapeuta, </li><li>Fonoaudiólogo, </li><li>Médico</li><li>etc.</li></ul>
+            </div>
+
+            <!-- Item 1 -->
+            <div class="curso-item">
+                <p><i class="bi bi-boxes curso-thumbnail-icon"></i></p>
+                <h3>Disciplinas</h3>
+                <p style="text-align: justify;">A Banca IBFC realizará esse concurso da Saúde de Sergipe. A data da prova ainda não foi divulgada. As disciplinas comuns a todos os cargos incluem: </p>
+                <ul style="text-align: left;">
+                    <li>Português,</li><li>Legislação do SUS,</li><li>Conhecimentos Gerais do Estado de Sergipe,</li><li>Conhecimentos Específicos do Cargo</li></ul>
+            </div>
+
+
+            <!-- Item 1 -->
+            <div class="curso-item">
+                <p><i class="bi bi-file-earmark-ruled curso-thumbnail-icon"></i></p>
+                <h3>Requisitos e Etapas</h3>
+                <p style="text-align: justify;">Os requisitos dependem do cargo escolhido. Alguns são para Nível Médio/Técnico e outros para Nível Superior.</p>
+                <p style="text-align: left;">As etapas para esse concurso são:</p>
+                <ul style="text-align: left;">
+                    <li>1ª Etapa: Prova Objetiva (classificatória e eliminatória)</li>
+                    <li>2ª Etapa: Prova de Títulos para alguns cargos (classificatória)</li>
+                    
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
     <!-- Seção "Quem é a CICLO" -->
     <section class="section">
-        <div class="section-inner">
+        <div class="section-inner" style="border-top:30px dotted rgba(0, 0, 0, 0.5);">
             <h2 id="about-title">Quem é a CICLO</h2>
             <div class="two-columns">
                 <div class="image-container" id="about-img">
                     <img src="../assets/img/ciclo_foto.jpg" alt="CICLO">
                 </div>
                 <div class="text-container" id="about-paragraphs">
-                    
+
                 </div>
             </div>
             <div style="text-align: center; margin-top: 20px;">
@@ -133,11 +234,13 @@
     <script>
         // Função para exibir o pop-up de cadastro
         function showPopup() {
+            document.getElementById('blackmask').style.display = 'block';
             document.getElementById('popup').style.display = 'block';
         }
 
         // Função para fechar o pop-up de cadastro
         function closePopup() {
+            document.getElementById('blackmask').style.display = 'none';
             document.getElementById('popup').style.display = 'none';
         }
 
@@ -204,7 +307,7 @@
         };
     </script>
 
-    
+
 
 </body>
 

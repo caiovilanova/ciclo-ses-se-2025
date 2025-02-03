@@ -164,6 +164,17 @@ body {
     color: #FFFFFF;
 }
 
+.popup-mask{
+    background:rgba(0,0,0,0.8);
+    display:none;
+    width:100vw;
+    height:100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index: 999;
+}
+
 /* Formulário */
 .form-container form {
     display: flex;
@@ -387,6 +398,14 @@ body {
 }
 
 .curso-thumbnail {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+
+.curso-thumbnail-icon {
+    font-size:40px;
     width: 100%;
     border-radius: 5px;
     margin-bottom: 15px;
