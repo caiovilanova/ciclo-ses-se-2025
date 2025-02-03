@@ -6,15 +6,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require("lib/funcoes.php");
 
     // Obtém os dados do formulário
-    $nome = $_POST['nome'] ?? 'Contato Black Caveira';  // Nome enviado pelo formulário ou um nome padrão
+    $nome = $_POST['nome'] ?? 'SES Gabaritando IBFC';  // Nome enviado pelo formulário ou um nome padrão
     $telefone = $_POST['telefone'] ?? '';     // Número do WhatsApp enviado pelo formulário
     
     $whatsapp = formatPhoneNumber($telefone);
 
     // Configurações para o Token e Funil
-    $accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjBjZmE5Yzk0MDIxMTIxZWU3NTkwODZjNThmZWZkMmY2ZjI1MmUyY2M1NzM1ZjE5NGI4ZDA5ZjJhNzFhNTNkMjA0NTVlZGM0MjcyOGMxOGYwIn0.eyJhdWQiOiJkNDY5NDFkMy05N2ZkLTRlMmItOWIyZS04YTUxOTM5NTQ0ZDAiLCJqdGkiOiIwY2ZhOWM5NDAyMTEyMWVlNzU5MDg2YzU4ZmVmZDJmNmYyNTJlMmNjNTczNWYxOTRiOGQwOWYyYTcxYTUzZDIwNDU1ZWRjNDI3MjhjMThmMCIsImlhdCI6MTczMDA4NDQxMCwibmJmIjoxNzMwMDg0NDEwLCJleHAiOjE3MzMwMTEyMDAsInN1YiI6IjExODE5ODg3IiwiZ3JhbnRfdHlwZSI6IiIsImFjY291bnRfaWQiOjMzMzczMTQ3LCJiYXNlX2RvbWFpbiI6ImtvbW1vLmNvbSIsInZlcnNpb24iOjIsInNjb3BlcyI6WyJwdXNoX25vdGlmaWNhdGlvbnMiLCJmaWxlcyIsImNybSIsIm5vdGlmaWNhdGlvbnMiXSwiaGFzaF91dWlkIjoiZDQzMDg2Y2UtMjJmZi00M2YzLTg1YzQtOTlmNTUwNTEzZWIyIiwiYXBpX2RvbWFpbiI6ImFwaS1jLmtvbW1vLmNvbSJ9.jTGct75oYLdqaSh7ptX__3LB7GWpWdfeetRlT8YIBsXjhdLqSD_i5gWv9lhVl3DooEpx1v5omYp8i1FWc-wUWFTTPjlTSlJEKn50t8R4jI9wLnEojm5naVoUYPJA1S6twt_jN41G0_1J6GRr_bHT7iFic1BElvxcE7MZtkQKBedJ5Zp-z5ZLH9Uu_rklVJ43mcv0fp6o4wf81YBTVFsGTaxuMGmVpq7WBXmp0_4wGk9y8UxLXGzJM-4l4GHZ2ggFqj2O6rS8r_OUI_OlEq_-MA18b-vZiybAAiPXOwikL0fPbRtBPL64sXa9167OBGpHa_AXoldnVq3TQ9HpGxgtYg';
+    $accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImNmYTg1YjAyNzI3YWJhNDZhYmQ2ZDY3YzYzYzUzOTdhMzVlYWNkZDkxZTU2MDg3NWFiMDA5ODZiOWM5MzhmMTBhMDNhN2VjZDY4MDdjODk2In0.eyJhdWQiOiJkNDY5NDFkMy05N2ZkLTRlMmItOWIyZS04YTUxOTM5NTQ0ZDAiLCJqdGkiOiJjZmE4NWIwMjcyN2FiYTQ2YWJkNmQ2N2M2M2M1Mzk3YTM1ZWFjZGQ5MWU1NjA4NzVhYjAwOTg2YjljOTM4ZjEwYTAzYTdlY2Q2ODA3Yzg5NiIsImlhdCI6MTczODYyMTU4OSwibmJmIjoxNzM4NjIxNTg5LCJleHAiOjE3NjcxMzkyMDAsInN1YiI6IjExODE5ODg3IiwiZ3JhbnRfdHlwZSI6IiIsImFjY291bnRfaWQiOjMzMzczMTQ3LCJiYXNlX2RvbWFpbiI6ImtvbW1vLmNvbSIsInZlcnNpb24iOjIsInNjb3BlcyI6WyJwdXNoX25vdGlmaWNhdGlvbnMiLCJmaWxlcyIsImNybSIsIm5vdGlmaWNhdGlvbnMiXSwiaGFzaF91dWlkIjoiM2RiZDg4MTAtNmIyZi00YjUyLWExZGEtOTUzZmU3ODI0NTk0IiwiYXBpX2RvbWFpbiI6ImFwaS1jLmtvbW1vLmNvbSJ9.CpSA8A-y08nwFwYhCkBxaB-f8vR63kEqpt7d4uxevYTfBJNFEhBInSTpiGxS5BTStE8zt-ebJzhcFVK1Rk7IISaiEoGWrn4OX4RG1W66U4GNzVN0D8IppwJFat_7kX3ysDo8YPr6aznHCnDVuJfJu2MDfDanw2XgU_TdamB2c9u5xkOTNHe2hh_RuOsyMajcbQFQ0cwFDL08RZAIqAUFDmmevHIS0McxSzCwPImOJo7Q7mVUt0V2CosQgETikXXB730BnuVs33_4y_D-EoJyCEsgO7d6cpHVOrWXQLkxqzWn7GnE-i1v6DgJDi5GNoSa8lVVKI3xIRQZQgo9a3r-vA';
     $pipelineId = 9877883;  // ID do funil onde o lead será criado
-    $statusId = 75861879;   // ID da etapa onde o lead será criado
+    $statusId = 78065443;   // ID da etapa onde o lead será criado
 
     // Passo 1: Criar o contato
     $curl = curl_init();
@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Exibir a resposta da criação do lead
     //echo "Lead criado com sucesso:\n";
     //echo $response;
-    header("Location: https://pmse.portalciclo.com.br/cadastro/parabens");
+    header("Location: https://ses.portalciclo.com.br/cadastro/parabens");
 
 } else {
     echo "Acesso inválido. ";
