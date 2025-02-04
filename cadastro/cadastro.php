@@ -1,20 +1,21 @@
 <?php
-
 // Verifica se os dados foram enviados via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    require("lib/funcoes.php");
-
-    // Obtém os dados do formulário
-    $nome = $_POST['nome'] ?? 'SES Gabaritando IBFC';  // Nome enviado pelo formulário ou um nome padrão
-    $telefone = $_POST['telefone'] ?? '';     // Número do WhatsApp enviado pelo formulário
-    
-    $whatsapp = formatPhoneNumber($telefone);
 
     // Configurações para o Token e Funil
     $accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImNmYTg1YjAyNzI3YWJhNDZhYmQ2ZDY3YzYzYzUzOTdhMzVlYWNkZDkxZTU2MDg3NWFiMDA5ODZiOWM5MzhmMTBhMDNhN2VjZDY4MDdjODk2In0.eyJhdWQiOiJkNDY5NDFkMy05N2ZkLTRlMmItOWIyZS04YTUxOTM5NTQ0ZDAiLCJqdGkiOiJjZmE4NWIwMjcyN2FiYTQ2YWJkNmQ2N2M2M2M1Mzk3YTM1ZWFjZGQ5MWU1NjA4NzVhYjAwOTg2YjljOTM4ZjEwYTAzYTdlY2Q2ODA3Yzg5NiIsImlhdCI6MTczODYyMTU4OSwibmJmIjoxNzM4NjIxNTg5LCJleHAiOjE3NjcxMzkyMDAsInN1YiI6IjExODE5ODg3IiwiZ3JhbnRfdHlwZSI6IiIsImFjY291bnRfaWQiOjMzMzczMTQ3LCJiYXNlX2RvbWFpbiI6ImtvbW1vLmNvbSIsInZlcnNpb24iOjIsInNjb3BlcyI6WyJwdXNoX25vdGlmaWNhdGlvbnMiLCJmaWxlcyIsImNybSIsIm5vdGlmaWNhdGlvbnMiXSwiaGFzaF91dWlkIjoiM2RiZDg4MTAtNmIyZi00YjUyLWExZGEtOTUzZmU3ODI0NTk0IiwiYXBpX2RvbWFpbiI6ImFwaS1jLmtvbW1vLmNvbSJ9.CpSA8A-y08nwFwYhCkBxaB-f8vR63kEqpt7d4uxevYTfBJNFEhBInSTpiGxS5BTStE8zt-ebJzhcFVK1Rk7IISaiEoGWrn4OX4RG1W66U4GNzVN0D8IppwJFat_7kX3ysDo8YPr6aznHCnDVuJfJu2MDfDanw2XgU_TdamB2c9u5xkOTNHe2hh_RuOsyMajcbQFQ0cwFDL08RZAIqAUFDmmevHIS0McxSzCwPImOJo7Q7mVUt0V2CosQgETikXXB730BnuVs33_4y_D-EoJyCEsgO7d6cpHVOrWXQLkxqzWn7GnE-i1v6DgJDi5GNoSa8lVVKI3xIRQZQgo9a3r-vA';
-    $pipelineId = 9877883;  // ID do funil onde o lead será criado
+    $pipelineId = 10172655;  // ID do funil onde o lead será criado
     $statusId = 78065443;   // ID da etapa onde o lead será criado
+    $urlRetorno = "https://ses.portalciclo.com.br/cadastro/parabens";
+  
+    require("../lib/funcoes.php");
+
+    // Obtém os dados do formulário
+    $nome = $_POST['nome'] ?? 'Sem nome';  // Nome enviado pelo formulário ou um nome padrão
+    $telefone = $_POST['telefone'] ?? '';     // Número do WhatsApp enviado pelo formulário
+    
+    $whatsapp = formatPhoneNumber($telefone);
 
     // Passo 1: Criar o contato
     $curl = curl_init();
@@ -72,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       CURLOPT_POST => true,
       CURLOPT_POSTFIELDS => json_encode([
         [
-          "name" => "Lead para $nome",
+          "name" => $nome,
           "pipeline_id" => $pipelineId,
           "status_id" => $statusId,
           "_embedded" => [
@@ -98,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Exibir a resposta da criação do lead
     //echo "Lead criado com sucesso:\n";
     //echo $response;
-    header("Location: https://ses.portalciclo.com.br/cadastro/parabens");
+    header("Location: $urlRetorno");
 
 } else {
     echo "Acesso inválido. ";

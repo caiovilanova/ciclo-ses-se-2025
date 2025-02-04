@@ -4,98 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Próximo Passo - Black Caveira PM-SE - CICLO</title>
+    <title>Próximo Passo - CICLO</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <link rel="icon" href="../assets/img/ciclo_favicon.png" type="image/png">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../../assets/estilos.css">
     <style>
-        /* Estilos Gerais */
-        html,
-        body {
-            overflow-x: hidden;
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            background-image: url('../assets/img/blackcaveira_bg.jpg');
-            background-size: cover;
-            background-position: center;
-            color: #FFFFFF;
+        /* Container da barra de progresso */
+        .progress-container {
+          width: 80%;
+          margin: 50px auto;
+          height: 30px;
+          background-color: #ddd;
+          border: 2px solid #1e7e34;
+          border-radius: 10px;
+          /* Removido overflow hidden para permitir o glow */
         }
-
-        .top-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            text-align: center;
-            min-height: 100vh;
+    
+        /* Barra de progresso interna */
+        .progress-bar {
+          height: 100%;
+          width: 0; /* começa em 0% */
+          background: linear-gradient(to right, #28a745, #1e7e34);
+          border-radius: 10px;
+          /* Animação de brilho contínuo */
+          animation: glowing 1.6s infinite;
+          /* Estilo do texto */
+          color: #fff;
+          font-weight: bold;
+          font-family: Arial, sans-serif;
+          text-align: center;
+          line-height: 30px; /* Alinha verticalmente o texto */
         }
-
-        .top-container img.logo-large {
-            width: 70%;
-            max-width: 300px;
-            height: auto;
+    
+        /* Keyframes do efeito de brilho */
+        @keyframes glowing {
+          0% {
+            box-shadow: 0 0 5px #28a745;
+          }
+          50% {
+            box-shadow: 0 0 20px #28a745;
+          }
+          100% {
+            box-shadow: 0 0 5px #28a745;
+          }
         }
-
-        .top-content h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5em;
-            font-weight: 600;
-            margin: 0;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .cta-button {
-            padding: 15px 30px;
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #FFFFFF;
-            background: linear-gradient(45deg, #28a745, #1e7e34);
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: pulse 1.5s infinite alternate;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 50px auto;
-            gap: 8px;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
-            }
-
-            100% {
-                transform: scale(1.05);
-                box-shadow: 0 0 15px rgba(40, 167, 69, 0.8);
-            }
-        }
-
-        .cta-button:hover {
-            transform: scale(1.1);
-        }
-
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
-            font-size: 0.9em;
-            color: #CCCCCC;
-        }
-
-        .footer .developer {
-            font-size: 0.75em;
-            color: #999999;
-        }
-    </style>
+      </style>
     <!-- Meta Pixel Code -->
     <script>
         !function (f, b, e, v, n, t, s) {
@@ -129,31 +85,57 @@
 <body>
     <header>
         <div class="top-container">
-            <img src="../assets/img/blackcaveira_logo.png" alt="Black Caveira PM-SE" class="logo-large">
+            <img src="../../assets/img/logo.png" alt="CICLO" class="logo-small">
             <div class="top-content">
-                <h1>Recebemos seu cadastro, futuro PM.<br>Veja o próximo passo:</h1>
-                <button class="cta-button"
-                    onclick="window.location.href='https://chat.whatsapp.com/DJRI2yNO9yrLOZAbZjqlg9'">
-                    <i class="bi bi-whatsapp"></i> Entrar no Grupo Silenciado da Black Caveira
-                </button>
-                <button class="cta-button" onclick="window.location.href='https://pmse.portalciclo.com.br'">
-                    <i class="bi bi-whatsapp"></i> VER AS OFERTAS
+                <h1>Quase lá!<br>Veja o próximo passo:</h1>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar">0%</div>
+                </div>
+                <button class="cta-button"  style="margin: 40px 0;"
+                    onclick="window.location.href='https://chat.whatsapp.com/IPYlf3JnAlXGxdXgOUiXCq'">
+                    <i class="bi bi-whatsapp"></i> Entrar no Grupo Silenciado
                 </button>
             </div>
         </div>
     </header>
 
+    <div class="btn-fixed-right-bottom">
+        <a href="https://api.whatsapp.com/send/?phone=557932465292&text=Oi!+Quero+saber+mais+sobre+os+cursos+da+SES."
+            target="_blank"><i class="bi bi-whatsapp"></i></a>
+    </div>
+
     <footer class="footer">
-        <img src="../assets/img/ciclo_logo.png" alt="Logo Ciclo" style="max-width: 50px;">
-        <p>© 2024 CICLO - Todos os direitos reservados.</p>
+        <img src="../../assets/img/ciclo_logo.png" alt="Logo Ciclo" style="max-width: 50px;">
+        <p>© 2025 CICLO - Todos os direitos reservados.</p>
         <p class="developer">Developed by Caio Vilanova</p>
     </footer>
     <script>
         // Redireciona a página após 7 segundos
+        /*
         setTimeout(function () {
-            window.location.href = "https://pmse.portalciclo.com.br"; // Substitua pela URL desejada
+            window.location.href = "https://ses.portalciclo.com.br"; // Substitua pela URL desejada
         }, 7000);
+        */
 
+
+        const progressBar = document.getElementById('progressBar');
+        let width = 0;          // Porcentagem inicial
+        const target = 70;      // Onde deve parar
+        const intervalTime = 30; // Intervalo em ms (controla a velocidade do incremento)
+
+        function fillBar() {
+            if (width >= target) {
+                clearInterval(interval);
+            } else {
+                width++;
+                // Ajusta a largura da barra e o texto interno
+                progressBar.style.width = width + '%';
+                progressBar.textContent = width + '%';
+            }
+        }
+
+        // Atualiza a barra periodicamente
+        const interval = setInterval(fillBar, intervalTime);
     </script>
 </body>
 
