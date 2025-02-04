@@ -56,8 +56,8 @@
     <div id="popup" class="popup-content">
         <span class="popup-close" onclick="closePopup()">×</span>
         <h2>Cadastre-se para Acesso Exclusivo</h2>
-        <form action="https://ses.portalciclo.com.br/cadastro/cadastro.php" method="POST" class="form-container"
-            onsubmit="return validateForm()">
+        <form id="form-cadastro" action="https://ses.portalciclo.com.br/cadastro/cadastro.php" method="POST"
+            class="form-container" onsubmit="return validateForm()">
             <input type="text" name="nome" placeholder="Seu Nome" required class="input">
             <div class="row">
                 <input type="text" name="ddi" value="+55" readonly class="input">
@@ -65,7 +65,7 @@
                 <input type="tel" name="whatsapp" placeholder="Número de WhatsApp" maxlength="9" required class="input">
             </div>
             <input type="hidden" id="telefone-formatado" name="telefone">
-            <button type="submit" class="submit-button">Confirmar Acesso</button>
+            <button type="submit" class="submit-button" id="submit-button">Confirmar Acesso</button>
         </form>
     </div>
     <div id="blackmask" class="popup-mask"></div>
@@ -292,6 +292,10 @@
             const telefoneCompleto = `${ddi}${ddd}${whatsapp}`;
             document.getElementById('telefone-formatado').value = telefoneCompleto;
 
+            // Se chegou até aqui, está tudo validado. Agora desabilita o botão.
+            const btnEnviarForm = document.getElementById('submit-button');
+            btnEnviarForm.disabled = true;
+            btnEnviarForm.innerText = 'Enviando...';
             return true; // Permite o envio do formulário se tudo estiver válido
         }
 
