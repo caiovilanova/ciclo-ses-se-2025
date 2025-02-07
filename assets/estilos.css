@@ -179,7 +179,22 @@ body {
     position:fixed;
     top:0;
     left:0;
+    z-index: 998;
+}
+.popup-carregando{
+    display:none;
+    top:0;
+    left:0;
     z-index: 999;
+    width:100vw;
+    height:100vh;
+    position:fixed;
+    font-size:24px;
+    font-weight: bold;
+    color:#fff;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 5px 5px 20px #000;
 }
 
 /* Formulário */
